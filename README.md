@@ -2,7 +2,7 @@
 ## Udacity Carnd- Team - Auto.io 
 
 ### Team Members:
-1. [Nahas Pareekutty](https://www.linkedin.com/in/nahaspareekutty/?locale=de_DE)
+1. [Nahas Pareekutty](https://www.linkedin.com/in/nahaspareekutty/?locale=de_DE) - Team Lead
 2. [Yogesh Mahawar](https://github.com/yogeshmahawar)
 3. [Sharath Srinivasan](https://github.com/sharathsrini)
 
