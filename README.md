@@ -1,6 +1,33 @@
-This is the project repo for the final project of the Udacity Self-Driving Car Nanodegree: Programming a Real Self-Driving Car. For more information about the project, see the project introduction [here](https://classroom.udacity.com/nanodegrees/nd013/parts/6047fe34-d93c-4f50-8336-b70ef10cb4b2/modules/e1a23b06-329a-4684-a717-ad476f0d8dff/lessons/462c933d-9f24-42d3-8bdc-a08a5fc866e4/concepts/5ab4b122-83e6-436d-850f-9f4d26627fd9).
+![alt text](/readme_image_0.jpg)
+## Udacity Carnd- Team - Auto.io 
 
-Please use **one** of the two installation options, either native **or** docker installation.
+### Team Members:
+1. [Nahas Pareekutty](https://www.linkedin.com/in/nahaspareekutty/?locale=de_DE)
+2. [Yogesh Mahawar](https://github.com/yogeshmahawar)
+3. [Sharath Srinivasan](https://github.com/sharathsrini)
+
+### Waypoint Updater
+The waypoint updater is responsible for calculating the next LOOKAHEAD_WPS (100) Waypoints and setting a target velocity for each. The default target velocity at each waypoint is set at system startup and recorded into the base waypoints. This velocity is used as a ceiling for the vehicle velocity and intentionally left unaltered by the waypoint updater. At each call to the waypoint updater, a subset of the base waypoint list is created of length LOOKAHEAD_WPS, starting with the calculated NEXT_WAYPOINT. The velocities of these waypoints are then set to allow smooth  deceleration . To aid in this, the current vehicle velocity and maximum acceleration value are used to determine the distance required by the vehicle. This value is recorded as the deceleration zone.
+
+### Overall Architecture
+
+![alt text](https://github.com/sharathsrini/Capstone-Project/blob/master/readme_image_1.png)
+
+
+### Drive By Wire (DBW) Node
+
+The DBW node is the final step in the self driving vehicle’s system. At this point we have a target linear and angular velocity and must adjust the vehicle’s controls accordingly. In this project we control 3 things: throttle, steering, brakes. As such, we have 3 distinct controllers to interface with the vehicle.
+
+#### Throttle Controller
+The throttle controller is a simple PID controller that compares the current velocity with the target velocity and adjusts the throttle accordingly. The throttle gains were tuned using trial and error for allowing reasonable acceleration without oscillation around the set-point.
+
+#### Steering Controller
+This controller translates the proposed linear and angular velocities into a steering angle based on the vehicle’s steering ratio and wheelbase length. To ensure our vehicle drives smoothly, we cap the maximum linear and angular acceleration rates. The steering angle computed by the controller is also passed through a low pass filter to reduce possible jitter from noise in velocity data.
+
+#### Braking Controller
+This is the simplest controller of the three - we simply proportionally brake based on the difference in the vehicle’s current velocity and the proposed velocity. This proportional gain was tuned using trial and error to ensure reasonable stopping distances while at the same time allowing low-speed driving. Despite the simplicity, we found that it works very well.
+
+
 
 ### Native Installation
 
