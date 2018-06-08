@@ -15,7 +15,6 @@ The waypoint updater is responsible for calculating the next LOOKAHEAD_WPS (100)
 
 
 ### Drive By Wire (DBW) Node
-
 The DBW node is the final step in the self driving vehicle’s system. At this point we have a target linear and angular velocity and must adjust the vehicle’s controls accordingly. In this project we control 3 things: throttle, steering, brakes. As such, we have 3 distinct controllers to interface with the vehicle.
 
 #### Throttle Controller
